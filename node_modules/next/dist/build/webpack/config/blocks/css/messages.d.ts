@@ -1,0 +1,3 @@
+export declare function getGlobalImportError(file: string | null): string;
+export declare function getGlobalModuleImportError(): string;
+export declare function getLocalModuleImportError(): string;
