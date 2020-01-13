@@ -1,0 +1,1 @@
+{"code":"(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{\"/EDR\":function(n,t,u){(window.__NEXT_P=window.__NEXT_P||[]).push([\"/\",function(){return u(\"23aj\")}])},\"23aj\":function(n,t,u){\"use strict\";u.r(t);var e=u(\"q1tI\"),i=u.n(e),a=u(\"apO0\"),o=i.a.createElement;t.default=function(){return o(a.a,null,o(\"h1\",null,\"Justin Friebel\"))}}},[[\"/EDR\",0,1]]]);"}

@@ -188,7 +188,21 @@ const Nav = () => __jsx("div", {
     lineNumber: 13
   },
   __self: undefined
-}, "About")));
+}, "About")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/blog",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 15
+  },
+  __self: undefined
+}, __jsx("a", {
+  style: linkStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 16
+  },
+  __self: undefined
+}, "Blog")));
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
 
