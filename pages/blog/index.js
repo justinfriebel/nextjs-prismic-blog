@@ -1,18 +1,19 @@
 import React from "react";
 import Prismic from "prismic-javascript";
 import { RichText, Date } from "prismic-reactjs";
+import Link from "next/link";
 import {
   client,
   linkResolver,
   hrefResolver
 } from "../../prismic-configuration";
-import Link from "next/link";
+import Layout from "../../components/Layout";
 
 const BlogHome = props => {
   const { data } = props.home;
 
   return (
-    <div>
+    <Layout>
       {/* <img src={props.home.data.image.url} alt="avatar image" /> */}
       <h1>{RichText.asText(data.headline)}</h1>
       <p>{RichText.asText(data.description)}</p>
@@ -27,7 +28,7 @@ const BlogHome = props => {
           </li>
         ))}
       </ul>
-    </div>
+    </Layout>
   );
 };
 

@@ -6,9 +6,9 @@
     "value": "blog_home.json"
   },
   {
-    "id": "post",
-    "name": "Post",
+    "id": "blog_post",
+    "name": "Blog Post",
     "repeatable": true,
-    "value": "post.json"
+    "value": "blog_post.json"
   }
 ]

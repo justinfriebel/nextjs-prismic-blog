@@ -1,17 +1,15 @@
 import React from "react";
 import { RichText, Date } from "prismic-reactjs";
-import { client } from "../../prismic-configuration";
 import Link from "next/link";
+import { client } from "../../prismic-configuration";
+import Layout from "../../components/Layout";
 
 const Post = props => (
-  <div>
-    <Link href="/">
-      <a>back to blog list</a>
-    </Link>
+  <Layout>
     {RichText.render(props.post.data.title)}
     <span>{Date(props.post.data.date).toString()}</span>
     {RichText.render(props.post.data.post_body)}
-  </div>
+  </Layout>
 );
 
 Post.getInitialProps = async context => {
