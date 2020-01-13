@@ -33,6 +33,13 @@ const BlogHome = props => {
 };
 
 BlogHome.getInitialProps = async context => {
+  if (context.res) {
+    context.res.setHeader(
+      "Cache-Control",
+      "s-maxage=1, stale-while-revalidate"
+    );
+  }
+
   const home = await client.getSingle("blog_home");
 
   const posts = await client.query(

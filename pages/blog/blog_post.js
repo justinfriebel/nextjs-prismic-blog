@@ -13,6 +13,13 @@ const Post = props => (
 );
 
 Post.getInitialProps = async context => {
+  if (context.res) {
+    context.res.setHeader(
+      "Cache-Control",
+      "s-maxage=1, stale-while-revalidate"
+    );
+  }
+
   const { uid } = context.query;
   const post = await client.getByUID("blog_post", uid);
 
