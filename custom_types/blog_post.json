@@ -15,6 +15,14 @@
         "placeholder": "Blog Post Title..."
       }
     },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Sub Title",
+        "placeholder": "Blog Post Sub Title..."
+      }
+    },
     "date": {
       "type": "Date",
       "config": {

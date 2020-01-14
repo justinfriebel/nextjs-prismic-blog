@@ -16,18 +16,23 @@ const BlogHome = props => {
     <Layout>
       {/* <img src={props.home.data.image.url} alt="avatar image" /> */}
       <h1>{RichText.asText(data.headline)}</h1>
-      <p>{RichText.asText(data.description)}</p>
+      <p className="description">{RichText.asText(data.description)}</p>
 
       <ul>
         {props.posts.results.map(post => (
           <li key={post.uid}>
             <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
-              <a>{RichText.render(post.data.title)}</a>
+              <a>{RichText.render(post.data.subtitle)}</a>
             </Link>
             <span>{Date(post.data.date).toString()}</span>
           </li>
         ))}
       </ul>
+      <style jsx>{`
+        .description {
+          margin-bottom: 80px;
+        }
+      `}</style>
     </Layout>
   );
 };
