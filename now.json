@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "PRISMIC_ACCESS_TOKEN": "@prismic-access-token"
+    }
+  }
+}

@@ -7,8 +7,7 @@ export const apiEndpoint = "https://justinfriebel.cdn.prismic.io/api/v2";
 
 // -- Access Token if the repository is not public
 // Generate a token in your dashboard and configure it here if your repository is private
-export const accessToken =
-  "MC5YaHJSNlJFQUFDUUFOX0dy.dnXvv71677-9Su-_ve-_ve-_ve-_ve-_vSnvv70Q77-9VO-_ve-_vW3vv73vv73vv73vv70l77-9Jyge77-977-9aCQ";
+export const accessToken = process.env.PRISMIC_ACCESS_TOKEN;
 
 // -- Link resolution rules
 // Manages links to internal Prismic documents
