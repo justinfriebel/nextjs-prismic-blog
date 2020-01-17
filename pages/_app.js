@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
 
       <style global jsx>{`
+        html {
+          overflow: -moz-scrollbars-vertical;
+          overflow-y: scroll;
+        }
         body {
           font-family: "Roboto", sans-serif;
           background-color: #26547c;
