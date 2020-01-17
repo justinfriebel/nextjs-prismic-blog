@@ -1,6 +1,5 @@
 import React from "react";
 import { RichText, Date } from "prismic-reactjs";
-import Link from "next/link";
 import { client } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 
