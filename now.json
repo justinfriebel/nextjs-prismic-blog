@@ -1,4 +1,11 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    }
+  ],
   "build": {
     "env": {
       "PRISMIC_ACCESS_TOKEN": "@prismic-access-token"
