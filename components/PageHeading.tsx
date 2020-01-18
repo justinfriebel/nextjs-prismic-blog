@@ -15,6 +15,7 @@ const PageHeading = ({ heading, date }: PageHeadingProps) => {
         h1 {
           margin-top: 40px;
           margin-bottom: 12px;
+          line-height: 36px;
         }
         .marginBottom {
           margin-bottom: 50px;
