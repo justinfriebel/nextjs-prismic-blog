@@ -8,27 +8,37 @@ import {
   hrefResolver
 } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
+import PageHeading from "../../components/PageHeading";
 
 const BlogHome = props => {
   const { data } = props.home;
 
   return (
     <Layout>
-      {/* <img src={props.home.data.image.url} alt="avatar image" /> */}
-      <h1>{RichText.asText(data.headline)}</h1>
-      <p className="description">{RichText.asText(data.description)}</p>
+      <PageHeading heading={RichText.asText(data.headline)} />
+      {/* <p className="description">{RichText.asText(data.description)}</p> */}
 
       <ul>
         {props.posts.results.map(post => (
-          <li key={post.uid}>
+          <li key={post.uid} className="blogPost">
             <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
-              <a>{RichText.render(post.data.subtitle)}</a>
+              <a>
+                <h2 className="subtitle">
+                  {RichText.asText(post.data.subtitle)}
+                </h2>
+              </a>
             </Link>
             <span>{Date(post.data.date).toString()}</span>
           </li>
         ))}
       </ul>
       <style jsx>{`
+        .blogPost {
+          margin-bottom: 40px;
+        }
+        .subtitle {
+          margin-bottom: 12px;
+        }
         .description {
           margin-bottom: 80px;
         }

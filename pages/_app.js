@@ -1,10 +1,9 @@
 import React from "react";
-import { Container } from "next/app";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Container>
+    <React.Fragment>
       <Head>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
@@ -24,6 +23,8 @@ function MyApp({ Component, pageProps }) {
           font-family: "Roboto", sans-serif;
           background-color: #26547c;
           color: #ffd166;
+          font-size: 18px;
+          line-height: 22px;
         }
         h1,
         h2,
@@ -45,7 +46,7 @@ function MyApp({ Component, pageProps }) {
           color: #fcfcfc;
         }
       `}</style>
-    </Container>
+    </React.Fragment>
   );
 }
 
