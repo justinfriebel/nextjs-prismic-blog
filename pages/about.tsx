@@ -1,9 +1,10 @@
 import { NextPage } from "next";
 import Layout from "../components/Layout";
+import PageHeading from "../components/PageHeading";
 
 const About: NextPage = () => (
   <Layout>
-    <h1>About Justin Friebel</h1>
+    <PageHeading heading="About Justin Friebel" />
     <h2>Who am I?</h2>
     <p>I'm a Software Engineer focused on writing JavaScript.</p>
   </Layout>

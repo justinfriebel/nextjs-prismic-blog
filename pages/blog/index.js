@@ -38,6 +38,7 @@ const BlogHome = props => {
         }
         .subtitle {
           margin-bottom: 12px;
+          line-height: 30px;
         }
         .description {
           margin-bottom: 80px;
