@@ -6,12 +6,10 @@ import PageHeading from "../../components/PageHeading";
 
 const Post = props => (
   <Layout>
-    {/* {RichText.render(props.post.data.title)} */}
     <PageHeading
       heading={RichText.asText(props.post.data.title)}
       date={Date(props.post.data.date).toString()}
     />
-    {/* <span>{Date(props.post.data.date).toString()}</span> */}
     {RichText.render(props.post.data.post_body)}
   </Layout>
 );
