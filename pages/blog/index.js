@@ -16,7 +16,6 @@ const BlogHome = props => {
   return (
     <Layout>
       <PageHeading heading={RichText.asText(data.headline)} />
-      {/* <p className="description">{RichText.asText(data.description)}</p> */}
 
       <ul>
         {props.posts.results.map(post => (
@@ -39,9 +38,6 @@ const BlogHome = props => {
         .subtitle {
           margin-bottom: 12px;
           line-height: 30px;
-        }
-        .description {
-          margin-bottom: 80px;
         }
       `}</style>
     </Layout>

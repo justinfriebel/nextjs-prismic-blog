@@ -7,7 +7,18 @@ const Home: NextPage = () => (
     <PageHeading heading="Justin Friebel" />
     <p>
       Welcome to Justin Friebel's website. I mostly write about nerdy software
-      things.
+      things. I'm currently writing JavaScript for{" "}
+      <a href="https://www.dealerinspire.com/careers/" target="_blank">
+        Dealer Inspire
+      </a>
+      .
+    </p>
+    <p>
+      I also work on my side project,{" "}
+      <a href="https://helpflow.in" target="_blank">
+        helpflow
+      </a>
+      , in my free time.
     </p>
   </Layout>
 );
