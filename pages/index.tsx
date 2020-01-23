@@ -4,10 +4,10 @@ import PageHeading from "../components/PageHeading";
 
 const Home: NextPage = () => (
   <Layout>
-    <PageHeading heading="Justin Friebel" />
+    <PageHeading heading="Hello! You've arrived at Justin Friebel's website." />
     <p>
-      Welcome to Justin Friebel's website. I mostly write about nerdy software
-      things. I'm currently writing JavaScript for{" "}
+      I mostly write about nerdy software things. I'm currently writing
+      JavaScript for{" "}
       <a href="https://www.dealerinspire.com/careers/" target="_blank">
         Dealer Inspire
       </a>

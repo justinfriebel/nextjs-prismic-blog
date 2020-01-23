@@ -21,8 +21,8 @@ function MyApp({ Component, pageProps }) {
         }
         body {
           font-family: "Roboto", sans-serif;
-          background-color: #26547c;
-          color: #ffd166;
+          background-color: #083a65;
+          color: #d89908;
           font-size: 18px;
           line-height: 22px;
         }

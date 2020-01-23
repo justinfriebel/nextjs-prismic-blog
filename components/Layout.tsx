@@ -1,9 +1,11 @@
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 const Layout = (props: any) => (
   <div className="layoutContainer">
     <Nav />
     {props.children}
+    <Footer />
 
     <style jsx>{`
       .layoutContainer {
