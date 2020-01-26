@@ -49,11 +49,11 @@ const Footer = () => (
         <Mail />
       </a>
     </Link>
-    {/* <Link href="https://cash.app/$freebly">
+    <Link href="https://cash.app/$freebly">
       <a target="_blank" style={linkStyle}>
         <DollarSign />
       </a>
-    </Link> */}
+    </Link>
   </div>
 );
 
