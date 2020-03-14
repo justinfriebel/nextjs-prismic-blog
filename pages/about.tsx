@@ -11,12 +11,6 @@ const About: NextPage = () => (
       video games and writing code in my free time. My Boston Terrier Belle
       loves to play as well!
     </p>
-
-    <h2>Where am I?</h2>
-    <p>
-      I've lived in cold ass Wisconsin my entire life and would love to
-      eventually live someplace warm someday.
-    </p>
   </Layout>
 );
 
