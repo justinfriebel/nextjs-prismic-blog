@@ -14,6 +14,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "next": "^9.1.7",
+    "next-offline": "^5.0.0",
     "prismic-javascript": "^2.1.5",
     "prismic-reactjs": "^1.2.0",
     "react": "^16.12.0",

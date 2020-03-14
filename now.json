@@ -1,14 +1,13 @@
 {
   "version": 2,
-  "headers": [
+  "routes": [
     {
-      "source": "/service-worker.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, min-fresh=5, max-stale[=5], no-cache, no-store, must-revalidate"
-        }
-      ]
+      "src": "^/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=60, immutable",
+        "Service-Worker-Allowed": "/"
+      }
     }
   ],
   "builds": [
