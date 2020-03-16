@@ -1,15 +1,5 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "^/sw.js$",
-      "dest": "/_next/static/sw.js",
-      "headers": {
-        "cache-control": "public, max-age=60, immutable",
-        "Service-Worker-Allowed": "/"
-      }
-    }
-  ],
   "builds": [
     {
       "src": "package.json",
