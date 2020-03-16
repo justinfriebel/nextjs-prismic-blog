@@ -4,7 +4,7 @@ import PageHeading from "../components/PageHeading";
 
 const Home: NextPage = () => (
   <Layout>
-    <PageHeading heading="Hello! You've arrived at Justin Friebel's website." />
+    <PageHeading heading="Hello! You're at Justin Friebel's website." />
     <p>
       I mostly write about nerdy software things. I'm currently writing
       JavaScript for{" "}
