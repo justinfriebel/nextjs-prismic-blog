@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "next": "^9.3.0",
+    "next": "^9.3.2",
     "prismic-javascript": "^2.1.5",
     "prismic-reactjs": "^1.2.0",
     "react": "^16.13.0",
