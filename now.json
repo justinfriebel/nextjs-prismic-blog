@@ -1,5 +1,26 @@
 {
   "version": 2,
+  "rewrites": [
+    {
+      "source": "/service-worker.js",
+      "destination": "/_next/static/service-worker.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/service-worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=60, immutable"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    }
+  ],
   "builds": [
     {
       "src": "package.json",

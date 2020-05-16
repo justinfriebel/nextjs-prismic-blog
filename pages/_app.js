@@ -1,7 +1,15 @@
 import React from "react";
 import Head from "next/head";
+import { register, unregister } from "next-offline/runtime";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    register();
+    return function cleanup() {
+      unregister();
+    };
+  });
+
   return (
     <React.Fragment>
       <Head>
