@@ -1,20 +1,8 @@
 import { NextPage } from "next";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    const { pathname } = router;
-    if (pathname == "/") {
-      router.push("/404");
-      router.push("/");
-    }
-  });
-
   return (
     <Layout>
       <PageHeading heading="Hello! You're at Justin Friebel's website." />
