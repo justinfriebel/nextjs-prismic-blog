@@ -10,7 +10,8 @@ const Home: NextPage = () => {
   useEffect(() => {
     const { pathname } = router;
     if (pathname == "/") {
-      router.push("/about");
+      router.push("/404");
+      router.push("/");
     }
   });
 
