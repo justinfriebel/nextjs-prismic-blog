@@ -5,7 +5,9 @@ import { register, unregister } from "next-offline/runtime";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     register();
+    console.log("hi");
     return function cleanup() {
+      console.log("bye");
       unregister();
     };
   });

@@ -30,6 +30,8 @@ const nextConfig = {
       },
     ],
   },
+  dontAutoRegisterSw: true,
+  devSwSrc: "/service-worker.js",
 };
 
 module.exports = withOffline(nextConfig);
