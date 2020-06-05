@@ -5,12 +5,12 @@ import Link from "next/link";
 import {
   client,
   linkResolver,
-  hrefResolver
+  hrefResolver,
 } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 
-const BlogHome = props => {
+const BlogHome = (props) => {
   const { data } = props.home;
 
   return (
@@ -18,7 +18,7 @@ const BlogHome = props => {
       <PageHeading heading={RichText.asText(data.headline)} />
 
       <ul>
-        {props.posts.results.map(post => (
+        {props.posts.results.map((post) => (
           <li key={post.uid} className="blogPost">
             <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
               <a>
@@ -38,13 +38,18 @@ const BlogHome = props => {
         .subtitle {
           margin-bottom: 12px;
           line-height: 30px;
+          color: #fcfcfc;
+        }
+        .subtitle:hover {
+          -webkit-filter: drop-shadow(0px 0px 3px #828282);
+          filter: drop-shadow(0px 0px 3px #828282);
         }
       `}</style>
     </Layout>
   );
 };
 
-BlogHome.getInitialProps = async context => {
+BlogHome.getInitialProps = async (context) => {
   if (context.res) {
     context.res.setHeader(
       "Cache-Control",

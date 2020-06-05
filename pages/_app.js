@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         body {
           font-family: "Roboto", sans-serif;
           background-color: #083a65;
-          color: #d89908;
+          color: #c3b7bc;
           font-size: 18px;
           line-height: 22px;
         }
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
         h5,
         h6 {
           font-family: "Open Sans", sans-serif;
-          color: #fcfcfc;
+          color: #d89908;
         }
         ul {
           padding-inline-start: 0px;
@@ -54,6 +54,10 @@ function MyApp({ Component, pageProps }) {
         a {
           text-decoration: none;
           color: #fcfcfc;
+        }
+        a:hover {
+          -webkit-filter: drop-shadow(0px 0px 3px #828282);
+          filter: drop-shadow(0px 0px 3px #828282);
         }
       `}</style>
     </React.Fragment>
