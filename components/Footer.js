@@ -54,6 +54,26 @@ const Footer = () => (
         <DollarSign />
       </a>
     </Link>
+    <p className="poweredBy">
+      &copy; {new Date().getFullYear()} Justin Friebel. Powered by
+      <Link href="//nextjs.org/">
+        <a target="_blank"> Next.js</a>
+      </Link>
+      ,
+      <Link href="//prismic.io/">
+        <a target="_blank"> prismic</a>
+      </Link>
+      , &
+      <Link href="//vercel.com">
+        <a target="_blank"> Vercel</a>
+      </Link>
+      .
+    </p>
+    <style jsx>{`
+      .poweredBy {
+        font-size: 12px;
+      }
+    `}</style>
   </div>
 );
 

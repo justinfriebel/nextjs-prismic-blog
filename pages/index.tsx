@@ -1,11 +1,16 @@
 import { NextPage } from "next";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
+import Head from "../components/Head";
 
 const Home: NextPage = () => {
   return (
     <Layout>
-      <PageHeading heading="Hello! You're at Justin Friebel's website." />
+      <Head
+        title="Justin Friebel | Software Engineer | JavaScript"
+        description="The website of Justin Friebel, a Software Engineer focused on writing JavaScript code."
+      />
+      <PageHeading heading="Hello! I'm Justin Friebel." />
       <p>
         I mostly write about nerdy software things. I'm currently writing
         JavaScript for{" "}

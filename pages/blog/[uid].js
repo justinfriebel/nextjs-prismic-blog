@@ -3,9 +3,14 @@ import { RichText, Date } from "prismic-reactjs";
 import { client } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
+import Head from "../../components/Head";
 
-const Post = props => (
+const Post = (props) => (
   <Layout>
+    <Head
+      title={RichText.asText(props.post.data.title)}
+      description={RichText.asText(props.post.data.title)}
+    />
     <PageHeading
       heading={RichText.asText(props.post.data.title)}
       date={Date(props.post.data.date).toString()}
@@ -14,7 +19,7 @@ const Post = props => (
   </Layout>
 );
 
-Post.getInitialProps = async context => {
+Post.getInitialProps = async (context) => {
   if (context.res) {
     context.res.setHeader(
       "Cache-Control",

@@ -3,12 +3,17 @@ import { RichText } from "prismic-reactjs";
 import { client } from "../prismic-configuration";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
+import Head from "../components/Head";
 
-const Resume = (props: any) => {
-  const { data } = props.resume;
+const Resume = ({ resume }) => {
+  const { data } = resume;
 
   return (
     <Layout>
+      <Head
+        title="Justin Friebel's Resume | Software Engineer | JavaScript"
+        description="Checkout Justin Friebel's resume, a Software Engineer focused on writing JavaScript."
+      />
       <PageHeading heading={RichText.asText(data.headline)} />
       {RichText.render(data.page_body)}
       <style jsx>{``}</style>

@@ -9,12 +9,17 @@ import {
 } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
+import Head from "../../components/Head";
 
 const BlogHome = (props) => {
   const { data } = props.home;
 
   return (
     <Layout>
+      <Head
+        title="Justin Friebel's blog"
+        description="Checkout Justin Friebel's blog."
+      />
       <PageHeading heading={RichText.asText(data.headline)} />
 
       <ul>
