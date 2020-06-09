@@ -54,14 +54,7 @@ const BlogHome = (props) => {
   );
 };
 
-BlogHome.getInitialProps = async (context) => {
-  if (context.res) {
-    context.res.setHeader(
-      "Cache-Control",
-      "s-maxage=1, stale-while-revalidate"
-    );
-  }
-
+export async function getStaticProps() {
   const home = await client.getSingle("blog_home");
 
   const posts = await client.query(
@@ -69,7 +62,7 @@ BlogHome.getInitialProps = async (context) => {
     { orderings: "[my.blog_post.date desc]" }
   );
 
-  return { home, posts };
-};
+  return { props: { home, posts } };
+}
 
 export default BlogHome;

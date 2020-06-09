@@ -1,4 +1,5 @@
 import React from "react";
+import Prismic from "prismic-javascript";
 import { RichText, Date } from "prismic-reactjs";
 import { client } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
@@ -19,18 +20,21 @@ const Post = (props) => (
   </Layout>
 );
 
-Post.getInitialProps = async (context) => {
-  if (context.res) {
-    context.res.setHeader(
-      "Cache-Control",
-      "s-maxage=1, stale-while-revalidate"
-    );
-  }
+export async function getStaticPaths() {
+  const posts = await client.query(
+    Prismic.Predicates.at("document.type", "blog_post"),
+    { orderings: "[my.blog_post.date desc]" }
+  );
 
-  const { uid } = context.query;
-  const post = await client.getByUID("blog_post", uid);
+  const paths = posts.results.map((post) => `/blog/${post.uid}`);
 
-  return { post };
-};
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const post = await client.getByUID("blog_post", params.uid);
+
+  return { props: { post } };
+}
 
 export default Post;

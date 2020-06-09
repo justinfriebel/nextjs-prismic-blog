@@ -21,17 +21,10 @@ const Resume = ({ resume }) => {
   );
 };
 
-Resume.getInitialProps = async (context: any) => {
-  if (context.res) {
-    context.res.setHeader(
-      "Cache-Control",
-      "s-maxage=1, stale-while-revalidate"
-    );
-  }
-
+export async function getStaticProps() {
   const resume = await client.getSingle("resume", {});
 
-  return { resume };
-};
+  return { props: { resume } };
+}
 
 export default Resume;
