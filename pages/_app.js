@@ -42,8 +42,11 @@ function MyApp({ Component, pageProps }) {
         h4,
         h5,
         h6 {
-          font-family: "Open Sans", sans-serif;
           color: #d89908;
+          font-family: "Open Sans", sans-serif;
+          margin-top: 50px;
+          margin-bottom: 10px;
+          line-height: 30px;
         }
         ul {
           padding-inline-start: 0px;
