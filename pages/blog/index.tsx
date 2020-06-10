@@ -1,6 +1,7 @@
 import React from "react";
 import Prismic from "prismic-javascript";
 import { RichText, Date } from "prismic-reactjs";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import {
   client,
@@ -11,8 +12,8 @@ import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
 
-const BlogHome = (props) => {
-  const { data } = props.home;
+const BlogHome = ({ home, posts }) => {
+  const { data } = home;
 
   return (
     <Layout>
@@ -23,7 +24,7 @@ const BlogHome = (props) => {
       <PageHeading heading={RichText.asText(data.headline)} />
 
       <ul>
-        {props.posts.results.map((post) => (
+        {posts.results.map((post) => (
           <li key={post.uid} className="blogPost">
             <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
               <a>
@@ -54,8 +55,8 @@ const BlogHome = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  const home = await client.getSingle("blog_home");
+export const getStaticProps: GetStaticProps = async () => {
+  const home = await client.getSingle("blog_home", {});
 
   const posts = await client.query(
     Prismic.Predicates.at("document.type", "blog_post"),
@@ -63,6 +64,6 @@ export async function getStaticProps() {
   );
 
   return { props: { home, posts } };
-}
+};
 
 export default BlogHome;
