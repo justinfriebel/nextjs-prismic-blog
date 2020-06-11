@@ -13,15 +13,12 @@ import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
 
 const BlogHome = ({ home, posts }) => {
-  const { data } = home;
+  const { headline, meta_title, meta_description } = home.data;
 
   return (
     <Layout>
-      <Head
-        title="Justin Friebel's blog"
-        description="Checkout Justin Friebel's blog."
-      />
-      <PageHeading heading={RichText.asText(data.headline)} />
+      <Head title={meta_title} description={meta_description} />
+      <PageHeading heading={RichText.asText(headline)} />
 
       <ul>
         {posts.results.map((post) => (

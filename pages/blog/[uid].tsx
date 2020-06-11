@@ -8,19 +8,16 @@ import Head from "../../components/Head";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 const Post = ({ post }) => {
-  const { data } = post;
+  const { title, date, post_body, meta_title, meta_description } = post.data;
 
   return (
     <Layout>
-      <Head
-        title={RichText.asText(data.title)}
-        description={RichText.asText(data.title)}
-      />
+      <Head title={meta_title} description={meta_description} />
       <PageHeading
-        heading={RichText.asText(data.title)}
-        date={Date(data.date).toString()}
+        heading={RichText.asText(title)}
+        date={Date(date).toString()}
       />
-      {RichText.render(data.post_body)}
+      {RichText.render(post_body)}
     </Layout>
   );
 };

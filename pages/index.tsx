@@ -1,36 +1,26 @@
-import { NextPage } from "next";
+import { GetStaticProps } from "next";
+import { RichText } from "prismic-reactjs";
+import { client } from "../prismic-configuration";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import Head from "../components/Head";
-import Link from "next/link";
 
-const Home: NextPage = () => {
+const Home = ({ home }) => {
+  const { headline, page_body, meta_title, meta_description } = home.data;
+
   return (
     <Layout>
-      <Head
-        title="Justin Friebel | Software Engineer | JavaScript"
-        description="The website of Justin Friebel, a Software Engineer focused on writing JavaScript code."
-      />
-      <PageHeading heading="Hello! I'm Justin Friebel." />
-      <p>
-        I currently work for{" "}
-        <a href="https://www.dealerinspire.com/careers/" target="_blank">
-          Dealer Inspire
-        </a>{" "}
-        writing JavaScript as a Product Developer.
-      </p>
-      <p>
-        I also work on my side project{" "}
-        <a href="https://helpflow.in" target="_blank">
-          helpflow
-        </a>{" "}
-        in my free time.
-      </p>
-      <p>
-        Make sure to check out my <Link href="/blog">blog</Link>.
-      </p>
+      <Head title={meta_title} description={meta_description} />
+      <PageHeading heading={RichText.asText(headline)} />
+      {RichText.render(page_body)}
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const home = await client.getSingle("home", {});
+
+  return { props: { home } };
 };
 
 export default Home;
