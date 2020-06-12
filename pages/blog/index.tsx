@@ -1,6 +1,6 @@
 import React from "react";
 import Prismic from "prismic-javascript";
-import { RichText, Date } from "prismic-reactjs";
+import { RichText } from "prismic-reactjs";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import {
@@ -11,6 +11,7 @@ import {
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
+import PrettyDate from "../../components/PrettyDate";
 
 const BlogHome = ({ home, posts }) => {
   const { headline, meta_title, meta_description } = home.data;
@@ -30,7 +31,7 @@ const BlogHome = ({ home, posts }) => {
                 </h2>
               </a>
             </Link>
-            <span>{Date(post.data.date).toString()}</span>
+            <span>{PrettyDate(post.data.date)}</span>
           </li>
         ))}
       </ul>
