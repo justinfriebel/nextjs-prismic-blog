@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import { register, unregister } from "next-offline/runtime";
+import { colors } from "../colors";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -31,8 +32,8 @@ function MyApp({ Component, pageProps }) {
         }
         body {
           font-family: "Roboto", sans-serif;
-          background-color: #083a65;
-          color: #c3b7bc;
+          background-color: ${colors.background};
+          color: ${colors.textNormal};
           font-size: 18px;
           line-height: 22px;
         }
@@ -42,7 +43,7 @@ function MyApp({ Component, pageProps }) {
         h4,
         h5,
         h6 {
-          color: #d89908;
+          color: ${colors.heading};
           font-family: "Open Sans", sans-serif;
           margin-top: 50px;
           margin-bottom: 10px;
@@ -56,11 +57,11 @@ function MyApp({ Component, pageProps }) {
         }
         a {
           text-decoration: none;
-          color: #fcfcfc;
+          color: ${colors.link};
         }
         a:hover {
-          -webkit-filter: drop-shadow(0px 0px 3px #828282);
-          filter: drop-shadow(0px 0px 3px #828282);
+          -webkit-filter: drop-shadow(0px 0px 3px ${colors.linkHover});
+          filter: drop-shadow(0px 0px 3px ${colors.linkHover});
         }
       `}</style>
     </React.Fragment>

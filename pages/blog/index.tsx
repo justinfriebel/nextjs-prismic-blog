@@ -8,6 +8,7 @@ import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
 import PrettyDate from "../../components/PrettyDate";
+import { colors } from "../../colors";
 
 const BlogHome = ({ home, posts }) => {
   const { headline, meta_title, meta_description } = home.data;
@@ -38,11 +39,11 @@ const BlogHome = ({ home, posts }) => {
         .subtitle {
           margin-bottom: 12px;
           line-height: 30px;
-          color: #fcfcfc;
+          color: ${colors.link};
         }
         .subtitle:hover {
-          -webkit-filter: drop-shadow(0px 0px 3px #828282);
-          filter: drop-shadow(0px 0px 3px #828282);
+          -webkit-filter: drop-shadow(0px 0px 3px ${colors.linkHover});
+          filter: drop-shadow(0px 0px 3px ${colors.linkHover});
         }
       `}</style>
     </Layout>
