@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import { RichText } from "prismic-reactjs";
-import { client } from "../prismic-configuration";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import Head from "../components/Head";
+import Prismic from "prismic-javascript";
 
 const About = ({ about }) => {
-  const { headline, page_body, meta_title, meta_description } = about.data;
+  const { headline, page_body, meta_title, meta_description } = about?.data;
 
   return (
     <Layout>
@@ -18,7 +18,12 @@ const About = ({ about }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const about = await client.getSingle("about", {});
+  if (!process.env.PRISMIC_API_ENDPOINT || !process.env.PRISMIC_ACCESS_TOKEN)
+    return { props: {} };
+
+  const about = await Prismic.client(process?.env?.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).getSingle("about", {});
 
   return { props: { about } };
 };

@@ -3,11 +3,7 @@ import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
 import { GetStaticProps } from "next";
 import Link from "next/link";
-import {
-  client,
-  linkResolver,
-  hrefResolver,
-} from "../../prismic-configuration";
+import { linkResolver, hrefResolver } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
@@ -54,12 +50,18 @@ const BlogHome = ({ home, posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const home = await client.getSingle("blog_home", {});
+  if (!process.env.PRISMIC_API_ENDPOINT || !process.env.PRISMIC_ACCESS_TOKEN)
+    return { props: {} };
 
-  const posts = await client.query(
-    Prismic.Predicates.at("document.type", "blog_post"),
-    { orderings: "[my.blog_post.date desc]" }
-  );
+  const home = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).getSingle("blog_home", {});
+
+  const posts = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).query(Prismic.Predicates.at("document.type", "blog_post"), {
+    orderings: "[my.blog_post.date desc]",
+  });
 
   return { props: { home, posts } };
 };

@@ -9,16 +9,5 @@
         "Service-Worker-Allowed": "/"
       }
     }
-  ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/next"
-    }
-  ],
-  "build": {
-    "env": {
-      "PRISMIC_ACCESS_TOKEN": "@prismic-access-token"
-    }
-  }
+  ]
 }

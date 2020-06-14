@@ -1,7 +1,6 @@
 import React from "react";
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
-import { client } from "../../prismic-configuration";
 import Layout from "../../components/Layout";
 import PageHeading from "../../components/PageHeading";
 import Head from "../../components/Head";
@@ -23,10 +22,14 @@ const Post = ({ post }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await client.query(
-    Prismic.Predicates.at("document.type", "blog_post"),
-    { orderings: "[my.blog_post.date desc]" }
-  );
+  if (!process.env.PRISMIC_API_ENDPOINT || !process.env.PRISMIC_ACCESS_TOKEN)
+    return { paths: [], fallback: false };
+
+  const posts = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).query(Prismic.Predicates.at("document.type", "blog_post"), {
+    orderings: "[my.blog_post.date desc]",
+  });
 
   const paths = posts.results.map((post) => `/blog/${post.uid}`);
 
@@ -34,8 +37,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params?.uid) return { props: {} };
-  const post = await client.getByUID("blog_post", params?.uid as string, {});
+  if (
+    !params?.uid ||
+    !process.env.PRISMIC_API_ENDPOINT ||
+    !process.env.PRISMIC_ACCESS_TOKEN
+  )
+    return { props: {} };
+
+  const post = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).getByUID("blog_post", params?.uid as string, {});
 
   return { props: { post } };
 };

@@ -1,10 +1,6 @@
-require("dotenv").config();
 const withOffline = require("next-offline");
 
 const nextConfig = {
-  env: {
-    PRISMIC_ACCESS_TOKEN: process.env.PRISMIC_ACCESS_TOKEN,
-  },
   target: "serverless",
   transformManifest: (manifest) => ["/"].concat(manifest), // add the homepage to the cache
   // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we

@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import { RichText } from "prismic-reactjs";
-import { client } from "../prismic-configuration";
 import Layout from "../components/Layout";
 import PageHeading from "../components/PageHeading";
 import Head from "../components/Head";
+import Prismic from "prismic-javascript";
 
 const Home = ({ home }) => {
   const { headline, page_body, meta_title, meta_description } = home.data;
@@ -18,7 +18,12 @@ const Home = ({ home }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const home = await client.getSingle("home", {});
+  if (!process.env.PRISMIC_API_ENDPOINT || !process.env.PRISMIC_ACCESS_TOKEN)
+    return { props: {} };
+
+  const home = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).getSingle("home", {});
 
   return { props: { home } };
 };

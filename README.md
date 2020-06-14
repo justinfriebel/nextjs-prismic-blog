@@ -1,3 +1,5 @@
 # jf-next-ts
 
-Remove .example from the .env and .env.build files and replace the Prismic tokens with your own non-production access tokens. Use Zeit's Now secrets to add a production access token.
+Copy, paste, and rename .env.local.example to .env.local.
+
+Replace the Prismic tokens with your own non-production access tokens. Add your production environment variables in the Vercel general settings dashboard.
