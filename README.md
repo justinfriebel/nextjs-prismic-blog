@@ -1,11 +1,12 @@
 # Nextjs prismic website and blog
 
 To use this as your website you'll need the following:
-*git
-*GitHub
-*npm
-*Vercel
-\*prismic
+
+- git
+- GitHub
+- npm
+- Vercel
+- prismic
 
 Copy, paste, and rename .env.local.example to .env.local.
 
