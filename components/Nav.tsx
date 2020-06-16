@@ -1,23 +1,18 @@
 import Link from "next/link";
-
-const linkStyle = {
-  marginRight: 15,
-};
+import { config } from "../config";
 
 const Nav = () => (
   <div>
-    <Link href="/">
-      <a style={linkStyle}>Home</a>
-    </Link>
-    <Link href="/about">
-      <a style={linkStyle}>About</a>
-    </Link>
-    <Link href="/blog">
-      <a style={linkStyle}>Blog</a>
-    </Link>
-    <Link href="/resume">
-      <a style={linkStyle}>Resume</a>
-    </Link>
+    {config.nav.map((navItem) => (
+      <Link href={navItem.link} key={navItem.text}>
+        <a className="navLink">{navItem.text}</a>
+      </Link>
+    ))}
+    <style jsx>{`
+      .navLink {
+        margin-right: 15px;
+      }
+    `}</style>
   </div>
 );
 

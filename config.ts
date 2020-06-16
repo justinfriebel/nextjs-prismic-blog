@@ -22,4 +22,10 @@ export const config = {
     },
     { link: "cash.app/$freebly", icon: DollarSign },
   ],
+  nav: [
+    { link: "/", text: "Home" },
+    { link: "/about", text: "About" },
+    { link: "/blog", text: "Blog" },
+    { link: "/resume", text: "Resume" },
+  ],
 };
