@@ -4,7 +4,7 @@ import { config } from "../config";
 const Footer = () => (
   <div className="footerContainer">
     {config.socials.map((social) => (
-      <Link href={`//${social.link}`}>
+      <Link href={`//${social.link}`} key={social.link}>
         <a target="_blank" className="footerLink">
           <social.icon />
         </a>
