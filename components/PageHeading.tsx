@@ -3,13 +3,18 @@ import { Fragment } from "react";
 interface PageHeadingProps {
   heading: string;
   date?: string;
+  author?: string;
 }
 
-const PageHeading = ({ heading, date }: PageHeadingProps) => {
+const PageHeading = ({ heading, date, author }: PageHeadingProps) => {
   return (
     <Fragment>
       <h1 className={!date ? "marginBottom" : ""}>{heading}</h1>
-      {!!date && <div className={date ? "marginBottom" : ""}>{date}</div>}
+      {!!date && (
+        <div className="marginBottom">{`${date} ${
+          author && `by ${author}`
+        }`}</div>
+      )}
 
       <style jsx>{`
         h1 {

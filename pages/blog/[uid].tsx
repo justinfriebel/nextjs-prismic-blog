@@ -8,14 +8,27 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import PrettyDate from "../../components/PrettyDate";
 
 const Post = ({ post }) => {
-  const { title, date, post_body, meta_title, meta_description } = post.data;
+  const {
+    author,
+    title,
+    date,
+    post_body,
+    meta_title,
+    meta_description,
+  } = post.data;
+
+  const author_name = author?.data?.author_name || "";
 
   const prettyDate = PrettyDate(date);
 
   return (
     <Layout>
       <Head title={meta_title} description={meta_description} />
-      <PageHeading heading={RichText.asText(title)} date={prettyDate} />
+      <PageHeading
+        heading={RichText.asText(title)}
+        date={prettyDate}
+        author={author_name && RichText.asText(author_name)}
+      />
       {RichText.render(post_body)}
     </Layout>
   );
@@ -46,7 +59,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const post = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-  }).getByUID("blog_post", params?.uid as string, {});
+  }).getByUID("blog_post", params?.uid as string, {
+    fetchLinks: ["author.author_name", "author.author_image"],
+  });
 
   return { props: { post } };
 };

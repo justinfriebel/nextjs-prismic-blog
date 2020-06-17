@@ -19,18 +19,25 @@ const BlogHome = ({ home, posts }) => {
       <PageHeading heading={RichText.asText(headline)} />
 
       <ul>
-        {posts.results.map((post) => (
-          <li key={post.uid} className="blogPost">
-            <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
-              <a>
-                <h2 className="subtitle">
-                  {RichText.asText(post.data.subtitle)}
-                </h2>
-              </a>
-            </Link>
-            <span>{PrettyDate(post.data.date)}</span>
-          </li>
-        ))}
+        {posts.results.map((post) => {
+          const author_name = post.data.author.data?.author_name || "";
+
+          return (
+            <li key={post.uid} className="blogPost">
+              <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
+                <a>
+                  <h2 className="subtitle">
+                    {RichText.asText(post.data.subtitle)}
+                  </h2>
+                </a>
+              </Link>
+              <span>
+                {PrettyDate(post.data.date)}
+                {author_name && ` by ${RichText.asText(author_name)}`}
+              </span>
+            </li>
+          );
+        })}
       </ul>
       <style jsx>{`
         .blogPost {
@@ -62,6 +69,7 @@ export const getStaticProps: GetStaticProps = async () => {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
   }).query(Prismic.Predicates.at("document.type", "blog_post"), {
     orderings: "[my.blog_post.date desc]",
+    fetchLinks: ["author.author_name", "author.author_image"],
   });
 
   return { props: { home, posts } };
