@@ -1,14 +1,16 @@
-import Document, { Html, Main, NextScript } from "next/document";
-import { Fonts } from "components/Fonts";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  componentDidMount() {
-    Fonts();
-  }
-
   render() {
     return (
       <Html lang="en">
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
+            rel="stylesheet"
+            key="google-font-open-sans-roboto"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
