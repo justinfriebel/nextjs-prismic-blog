@@ -1,16 +1,16 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Main, NextScript } from "next/document";
+import WebFont from "webfontloader";
+
+WebFont.load({
+  google: {
+    families: ["Open Sans", "Roboto", "sans-serif"],
+  },
+});
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
-        <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
-            rel="stylesheet"
-            key="google-font-open-sans-roboto"
-          />
-        </Head>
+      <Html lang="en">
         <body>
           <Main />
           <NextScript />
