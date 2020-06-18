@@ -1,13 +1,9 @@
 import Document, { Html, Main, NextScript } from "next/document";
-import WebFont from "webfontloader";
+import { Fonts } from "components/Fonts";
 
 class MyDocument extends Document {
   componentDidMount() {
-    WebFont.load({
-      google: {
-        families: ["Open Sans", "Roboto", "sans-serif"],
-      },
-    });
+    Fonts();
   }
 
   render() {
