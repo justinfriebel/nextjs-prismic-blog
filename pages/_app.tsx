@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 import { register, unregister } from "next-offline/runtime";
 import { colors } from "colors";
 
@@ -14,15 +13,7 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    <React.Fragment>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap"
-          rel="stylesheet"
-          key="google-font-open-sans-roboto"
-        />
-      </Head>
-
+    <>
       <Component {...pageProps} />
 
       <style global jsx>{`
@@ -64,7 +55,7 @@ function MyApp({ Component, pageProps }) {
           filter: drop-shadow(0px 0px 3px ${colors.linkHover});
         }
       `}</style>
-    </React.Fragment>
+    </>
   );
 }
 
