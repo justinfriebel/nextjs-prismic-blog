@@ -3,12 +3,12 @@ import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
 import { GetStaticProps } from "next";
 import Link from "next/link";
-import { linkResolver, hrefResolver } from "../../prismic-configuration";
-import Layout from "../../components/Layout";
-import PageHeading from "../../components/PageHeading";
-import Head from "../../components/Head";
-import PrettyDate from "../../components/PrettyDate";
-import { colors } from "../../colors";
+import { linkResolver, hrefResolver } from "prismic-configuration";
+import { Layout } from "components/Layout";
+import { PageHeading } from "components/PageHeading";
+import { Head } from "components/Head";
+import { PrettyDate } from "components/PrettyDate";
+import { colors } from "colors";
 
 const BlogHome = ({ home, posts }) => {
   const { headline, meta_title, meta_description } = home.data;

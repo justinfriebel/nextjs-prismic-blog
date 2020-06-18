@@ -30,4 +30,4 @@ const PageHeading = ({ heading, date, author }: PageHeadingProps) => {
   );
 };
 
-export default PageHeading;
+export { PageHeading };

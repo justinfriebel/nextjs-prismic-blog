@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import { register, unregister } from "next-offline/runtime";
-import { colors } from "../colors";
+import { colors } from "colors";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

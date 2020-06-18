@@ -8,4 +8,4 @@ const PrettyDate = (date: string) => {
   return dayjs(Date(date).toString()).format("MMMM Do, YYYY");
 };
 
-export default PrettyDate;
+export { PrettyDate };

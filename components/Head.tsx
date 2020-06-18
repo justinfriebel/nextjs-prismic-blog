@@ -14,4 +14,4 @@ const Head = ({ description, title }: HeadProps) => (
   </NextHead>
 );
 
-export default Head;
+export { Head };

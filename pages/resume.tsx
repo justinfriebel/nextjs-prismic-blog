@@ -1,10 +1,10 @@
 import React from "react";
-import { RichText } from "prismic-reactjs";
-import Layout from "../components/Layout";
-import PageHeading from "../components/PageHeading";
-import Head from "../components/Head";
 import { GetStaticProps } from "next";
+import { RichText } from "prismic-reactjs";
 import Prismic from "prismic-javascript";
+import { Layout } from "components/Layout";
+import { PageHeading } from "components/PageHeading";
+import { Head } from "components/Head";
 
 const Resume = ({ resume }) => {
   const { headline, page_body, meta_title, meta_description } = resume.data;

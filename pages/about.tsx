@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import { RichText } from "prismic-reactjs";
-import Layout from "../components/Layout";
-import PageHeading from "../components/PageHeading";
-import Head from "../components/Head";
 import Prismic from "prismic-javascript";
+import { Layout } from "components/Layout";
+import { PageHeading } from "components/PageHeading";
+import { Head } from "components/Head";
 
 const About = ({ about }) => {
   const { headline, page_body, meta_title, meta_description } = about?.data;

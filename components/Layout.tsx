@@ -1,5 +1,5 @@
-import Nav from "./Nav";
-import Footer from "./Footer";
+import { Nav } from "components/Nav";
+import { Footer } from "components/Footer";
 
 const Layout = (props: any) => (
   <div className="layoutContainer">
@@ -18,4 +18,4 @@ const Layout = (props: any) => (
   </div>
 );
 
-export default Layout;
+export { Layout };

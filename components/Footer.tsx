@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { config } from "../config";
+import { config } from "config";
 
 const Footer = () => (
   <div className="footerContainer">
@@ -39,4 +39,4 @@ const Footer = () => (
   </div>
 );
 
-export default Footer;
+export { Footer };

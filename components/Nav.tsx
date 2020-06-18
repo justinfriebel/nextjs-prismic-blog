@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { config } from "../config";
+import { config } from "config";
 
 const Nav = () => (
   <div>
@@ -16,4 +16,4 @@ const Nav = () => (
   </div>
 );
 
-export default Nav;
+export { Nav };

@@ -1,11 +1,11 @@
 import React from "react";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
-import Layout from "../../components/Layout";
-import PageHeading from "../../components/PageHeading";
-import Head from "../../components/Head";
-import { GetStaticProps, GetStaticPaths } from "next";
-import PrettyDate from "../../components/PrettyDate";
+import { Layout } from "components/Layout";
+import { PageHeading } from "components/PageHeading";
+import { Head } from "components/Head";
+import { PrettyDate } from "components/PrettyDate";
 
 const Post = ({ post }) => {
   const {
