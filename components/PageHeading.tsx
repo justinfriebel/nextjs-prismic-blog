@@ -1,9 +1,13 @@
 import { Fragment } from "react";
+import { Author, AuthorImage, AuthorName } from "components/Author";
 
 interface PageHeadingProps {
   heading: string;
   date?: string;
-  author?: string;
+  author?: {
+    author_name: AuthorName[];
+    author_image: AuthorImage;
+  };
 }
 
 const PageHeading = ({ heading, date, author }: PageHeadingProps) => {
@@ -11,9 +15,10 @@ const PageHeading = ({ heading, date, author }: PageHeadingProps) => {
     <Fragment>
       <h1 className={!date ? "marginBottom" : ""}>{heading}</h1>
       {!!date && (
-        <div className="marginBottom">{`${date} ${
-          author && `by ${author}`
-        }`}</div>
+        <div className="marginBottom dateAuthorContainer">
+          {date}
+          {author && <Author author={author} />}
+        </div>
       )}
 
       <style jsx>{`
@@ -24,6 +29,10 @@ const PageHeading = ({ heading, date, author }: PageHeadingProps) => {
         }
         .marginBottom {
           margin-bottom: 50px;
+        }
+        .dateAuthorContainer {
+          display: flex;
+          align-items: center;
         }
       `}</style>
     </Fragment>

@@ -8,6 +8,7 @@ import { Layout } from "components/Layout";
 import { PageHeading } from "components/PageHeading";
 import { Head } from "components/Head";
 import { PrettyDate } from "components/PrettyDate";
+import { Author } from "components/Author";
 import { colors } from "colors";
 
 const BlogHome = ({ home, posts }) => {
@@ -20,8 +21,6 @@ const BlogHome = ({ home, posts }) => {
 
       <ul>
         {posts.results.map((post) => {
-          const author_name = post.data.author.data?.author_name || "";
-
           return (
             <li key={post.uid} className="blogPost">
               <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
@@ -31,9 +30,9 @@ const BlogHome = ({ home, posts }) => {
                   </h2>
                 </a>
               </Link>
-              <span>
+              <span className="dateAuthorContainer">
                 {PrettyDate(post.data.date)}
-                {author_name && ` by ${RichText.asText(author_name)}`}
+                <Author author={post.data.author.data} />
               </span>
             </li>
           );
@@ -51,6 +50,10 @@ const BlogHome = ({ home, posts }) => {
         .subtitle:hover {
           -webkit-filter: drop-shadow(0px 0px 3px ${colors.linkHover});
           filter: drop-shadow(0px 0px 3px ${colors.linkHover});
+        }
+        .dateAuthorContainer {
+          display: flex;
+          align-items: center;
         }
       `}</style>
     </Layout>

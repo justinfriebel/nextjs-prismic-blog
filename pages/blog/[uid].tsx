@@ -17,8 +17,6 @@ const Post = ({ post }) => {
     meta_description,
   } = post.data;
 
-  const author_name = author?.data?.author_name || "";
-
   const prettyDate = PrettyDate(date);
 
   return (
@@ -27,7 +25,7 @@ const Post = ({ post }) => {
       <PageHeading
         heading={RichText.asText(title)}
         date={prettyDate}
-        author={author_name && RichText.asText(author_name)}
+        author={author?.data && author.data}
       />
       {RichText.render(post_body)}
     </Layout>
