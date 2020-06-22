@@ -1,4 +1,5 @@
 const withOffline = require("next-offline");
+const withImages = require("next-images");
 
 const nextConfig = {
   target: "serverless",
@@ -30,4 +31,4 @@ const nextConfig = {
   devSwSrc: "/service-worker.js",
 };
 
-module.exports = withOffline(nextConfig);
+module.exports = withOffline(withImages(nextConfig));

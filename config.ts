@@ -28,4 +28,5 @@ export const config = {
     { link: "/blog", text: "Blog" },
     { link: "/resume", text: "Resume" },
   ],
+  useLogo: true,
 };
