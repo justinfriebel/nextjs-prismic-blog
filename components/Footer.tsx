@@ -10,21 +10,29 @@ const Footer = () => (
         </a>
       </Link>
     ))}
-    <p className="poweredBy">
-      &copy; {new Date().getFullYear()} {config.name}. Powered by
-      <Link href="//nextjs.org/">
-        <a target="_blank"> Next.js</a>
-      </Link>
-      ,
-      <Link href="//prismic.io/">
-        <a target="_blank"> prismic</a>
-      </Link>
-      , &
-      <Link href="//vercel.com">
-        <a target="_blank"> Vercel</a>
-      </Link>
-      .
+
+    <p className="copyrightContainer">
+      &copy; {new Date().getFullYear()} {config.name}.
+      {config.displayPoweredBy && (
+        <span>
+          {" "}
+          Powered by
+          <Link href="//nextjs.org/">
+            <a target="_blank"> Next.js</a>
+          </Link>
+          ,
+          <Link href="//prismic.io/">
+            <a target="_blank"> prismic</a>
+          </Link>
+          , &
+          <Link href="//vercel.com">
+            <a target="_blank"> Vercel</a>
+          </Link>
+          .
+        </span>
+      )}
     </p>
+
     <style jsx>{`
       .footerContainer {
         margin-top: 60px;
@@ -32,7 +40,7 @@ const Footer = () => (
       .footerLink {
         margin-right: 15px;
       }
-      .poweredBy {
+      .copyrightContainer {
         font-size: 12px;
       }
     `}</style>
