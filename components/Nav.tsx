@@ -3,7 +3,6 @@ import { config } from "config";
 import logo from "public/logo.svg";
 import { Menu, X } from "react-feather";
 import { useState } from "react";
-import { useMedia } from "react-media";
 import { colors } from "colors";
 import { useRouter } from "next/router";
 
@@ -11,7 +10,6 @@ const Nav = () => {
   const { displayLogo, name, nav, globalMediaQueries } = config;
 
   const router = useRouter();
-  const matches = useMedia({ queries: globalMediaQueries });
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,8 +32,8 @@ const Nav = () => {
           </Link>
         )}
 
-        {(matches.medium || matches.large) &&
-          nav.map((navItem) => (
+        <div className="desktopNavContainer">
+          {nav.map((navItem) => (
             <Link href={navItem.link} key={navItem.text}>
               <a
                 className={displayLogo ? "navLinksWithLogo" : "navLinksNoLogo"}
@@ -44,12 +42,11 @@ const Nav = () => {
               </a>
             </Link>
           ))}
+        </div>
 
-        {/* {matches.small && ( */}
         <a onClick={(event) => toggleMobileNav(event)} className="menuIcon">
           <Menu />
         </a>
-        {/* )} */}
       </div>
 
       {isOpen && (
@@ -61,7 +58,7 @@ const Nav = () => {
           </div>
 
           {nav.map((navItem) => (
-            <div className="navLinkContainer">
+            <div className="navLinkContainer" key={`mobile-${navItem.text}`}>
               <a
                 onClick={(event) =>
                   handleMobileNavItemClick(event, navItem.link)
@@ -120,15 +117,12 @@ const Nav = () => {
         .navLinkContainer:last-child {
           margin-bottom: 32px;
         }
-        .hidden {
-          display: none;
-        }
-        @media ${globalMediaQueries.medium} {
-          .menuIcon {
+        @media ${globalMediaQueries.small} {
+          .desktopNavContainer {
             display: none;
           }
         }
-        @media ${globalMediaQueries.large} {
+        @media ${globalMediaQueries.mediumUp} {
           .menuIcon {
             display: none;
           }
