@@ -1,6 +1,6 @@
 export const colors = {
   background: "#083a65",
-  navBackground: "#052b4c",
+  mobileNavBackground: "#052b4c",
   textNormal: "#b3a8ac",
   link: "#fcfcfc",
   linkHover: "#828282",
