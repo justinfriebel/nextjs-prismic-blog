@@ -123,12 +123,12 @@ const Nav = () => {
         .hidden {
           display: none;
         }
-        @media (${globalMediaQueries.medium}) {
+        @media ${globalMediaQueries.medium} {
           .menuIcon {
             display: none;
           }
         }
-        @media (${globalMediaQueries.large}) {
+        @media ${globalMediaQueries.large} {
           .menuIcon {
             display: none;
           }
