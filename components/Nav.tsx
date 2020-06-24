@@ -28,7 +28,9 @@ const Nav = () => {
       <div className="navContainer">
         {displayLogo && (
           <Link href="/">
-            <img src={logo} alt={`${name} logo`} />
+            <a>
+              <img src={logo} alt={`${name} logo`} />
+            </a>
           </Link>
         )}
 
