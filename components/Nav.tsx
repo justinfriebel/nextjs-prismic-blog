@@ -45,14 +45,11 @@ const Nav = () => {
             </Link>
           ))}
 
-        {matches.small && (
-          <a
-            onClick={(event) => toggleMobileNav(event)}
-            className={matches.small ? "menuIcon" : "hidden"}
-          >
-            <Menu />
-          </a>
-        )}
+        {/* {matches.small && ( */}
+        <a onClick={(event) => toggleMobileNav(event)} className="menuIcon">
+          <Menu />
+        </a>
+        {/* )} */}
       </div>
 
       {isOpen && (
@@ -125,6 +122,16 @@ const Nav = () => {
         }
         .hidden {
           display: none;
+        }
+        @media (${globalMediaQueries.medium}) {
+          .menuIcon {
+            display: none;
+          }
+        }
+        @media (${globalMediaQueries.large}) {
+          .menuIcon {
+            display: none;
+          }
         }
       `}</style>
     </div>
