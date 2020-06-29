@@ -14,8 +14,15 @@ Create an account, content types, and content in <a href="https://prismic.io/" t
 
 Create an account on <a href="https://vercel.com/" target="_blank">Vercel</a>. Use the git integration with the repo you created. When setting up your git integration it will ask you for environment variables, enter the ones listed below.
 
-- name: PRISMIC_API_ENDPOINT value: copy & paste the API Endpoint URL from your prismic settings page
-- name: PRISMIC_ACCESS_TOKEN value: copy & paste the Permanent access token from your prismic settings page
+- Prismic API Endpoint Environment Variable
+  - name: PRISMIC_API_ENDPOINT
+  - value: copy & paste the API Endpoint URL from your prismic settings page
+- Prismic Access Token Environment Variable
+  - name: PRISMIC_ACCESS_TOKEN
+  - value: copy & paste the Permanent access token from your prismic settings page
+- Google Analytics Tracking ID Environment Variable
+  - name: NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID
+  - value: copy & paste the Tracking ID from Google Analytics
 
 This only adds the environment variables for Production and Preview environments, you'll need to add them for your Development environment as well in Vercel's Settings -> General -> Environment Variables -> Development.
 
