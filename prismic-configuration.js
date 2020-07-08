@@ -15,3 +15,11 @@ export const hrefResolver = (doc) => {
   }
   return "/";
 };
+
+export const tagLinkResolver = (tag) => {
+  return `/blog/tag/${tag}`;
+};
+
+export const tagHrefResolver = () => {
+  return `/blog/tag/[uid]`;
+};

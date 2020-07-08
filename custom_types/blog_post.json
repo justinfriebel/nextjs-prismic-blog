@@ -54,6 +54,32 @@
         "label": "Date"
       }
     },
+    "blog_post_tags": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "tag": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["blog_post_tag"],
+              "label": "Tag",
+              "placeholder": "Select a tag"
+            }
+          }
+        },
+        "label": "Blog Post Tags"
+      }
+    },
+    "author": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["author"],
+        "label": "Author",
+        "placeholder": "Select an author"
+      }
+    },
     "post_body": {
       "type": "StructuredText",
       "config": {

@@ -1,7 +1,7 @@
 import React from "react";
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
-import { GetStaticProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import { linkResolver, hrefResolver } from "prismic-configuration";
 import { Layout } from "components/Layout";
@@ -12,16 +12,19 @@ import { Author } from "components/Author";
 import { colors } from "colors";
 import { Tags } from "components/Tags";
 
-const BlogHome = ({ home, posts }) => {
-  const { headline, meta_title, meta_description } = home.data;
+const BlogTagListing = ({ posts, singleTagTitle }) => {
+  const tagPageTitle = `${RichText.asText(singleTagTitle)} blog posts`;
 
   return (
     <Layout>
-      <Head title={meta_title} description={meta_description} />
-      <PageHeading heading={RichText.asText(headline)} />
+      <Head
+        title={tagPageTitle}
+        description={`Find and read ${tagPageTitle}.`}
+      />
+      <PageHeading heading={tagPageTitle} />
 
       <ul>
-        {posts.results.map((post: any) => {
+        {posts.results.map((post) => {
           const { blog_post_tags, date, author } = post.data;
 
           return (
@@ -66,26 +69,64 @@ const BlogHome = ({ home, posts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   if (!process.env.PRISMIC_API_ENDPOINT || !process.env.PRISMIC_ACCESS_TOKEN)
+    return { paths: [], fallback: false };
+
+  const tags = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  }).query(Prismic.Predicates.at("document.type", "blog_post_tag"), {});
+
+  const paths = tags.results.map((tag) => `/blog/tag/${tag.uid}`);
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (
+    !params?.uid ||
+    !process.env.PRISMIC_API_ENDPOINT ||
+    !process.env.PRISMIC_ACCESS_TOKEN
+  )
     return { props: {} };
 
-  const home = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
+  const allTags = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-  }).getSingle("blog_home", {});
+  }).query([Prismic.Predicates.at("document.type", "blog_post_tag")], {});
+
+  const singleTag = allTags.results.filter((tag) => {
+    return tag.uid === params.uid;
+  });
+
+  const tagId = singleTag.map((tag) => {
+    return tag.id;
+  });
+
+  const tagTitle = singleTag.map((tag) => {
+    return tag.data.title;
+  });
+
+  const singleTagId = tagId.values().next().value;
+  const singleTagTitle = tagTitle.values().next().value;
 
   const posts = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-  }).query(Prismic.Predicates.at("document.type", "blog_post"), {
-    orderings: "[my.blog_post.date desc]",
-    fetchLinks: [
-      "author.author_name",
-      "author.author_image",
-      "blog_post_tag.title",
+  }).query(
+    [
+      Prismic.Predicates.at("document.type", "blog_post"),
+      Prismic.Predicates.at("my.blog_post.blog_post_tags.tag", singleTagId),
     ],
-  });
+    {
+      orderings: "[my.blog_post.date desc]",
+      fetchLinks: [
+        "author.author_name",
+        "author.author_image",
+        "blog_post_tag.title",
+      ],
+    }
+  );
 
-  return { props: { home, posts } };
+  return { props: { posts, singleTagTitle } };
 };
 
-export default BlogHome;
+export default BlogTagListing;

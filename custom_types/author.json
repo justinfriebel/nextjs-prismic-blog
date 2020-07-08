@@ -1,0 +1,23 @@
+{
+  "Main": {
+    "author_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading6",
+        "label": "Author Name",
+        "placeholder": "Ada Lovelace"
+      }
+    },
+    "author_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 200,
+          "height": 200
+        },
+        "thumbnails": [],
+        "label": "Author Image"
+      }
+    }
+  }
+}
