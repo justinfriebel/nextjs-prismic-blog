@@ -1,24 +1,16 @@
 import React, { useEffect } from "react";
-import { register, unregister } from "next-offline/runtime";
 import Router from "next/router";
 import { colors } from "colors";
 import * as gtag from "gtag";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    register();
-    console.log("hi");
-    return function cleanup() {
-      console.log("bye");
-      unregister();
-    };
-  });
-
-  useEffect(() => {
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };
+
     Router.events.on("routeChangeComplete", handleRouteChange);
+
     return () => {
       Router.events.off("routeChangeComplete", handleRouteChange);
     };
