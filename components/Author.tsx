@@ -1,10 +1,4 @@
-import { RichText } from "prismic-reactjs";
-
-export interface AuthorName {
-  spans: [];
-  text: string;
-  type: string;
-}
+import { RichText, RichTextBlock } from "prismic-reactjs";
 
 export interface AuthorImage {
   alt: string | null;
@@ -18,7 +12,7 @@ export interface AuthorImage {
 
 export interface AuthorProps {
   author: {
-    author_name: AuthorName[];
+    author_name: RichTextBlock[];
     author_image: AuthorImage;
   };
 }
