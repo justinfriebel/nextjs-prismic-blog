@@ -1,14 +1,16 @@
-import Link from "next/link";
 import { config } from "config";
 
 const Footer = () => (
   <div className="footerContainer">
     {config.socials.map((social) => (
-      <Link href={`//${social.link}`} key={social.link}>
-        <a target="_blank" className="footerLink">
-          <social.icon />
-        </a>
-      </Link>
+      <a
+        href={`${social.link}`}
+        key={social.link}
+        target="_blank"
+        className="footerLink"
+      >
+        <social.icon />
+      </a>
     ))}
 
     <p className="copyrightContainer">
@@ -16,18 +18,18 @@ const Footer = () => (
       {config.displayPoweredBy && (
         <span>
           {" "}
-          Powered by
-          <Link href="//nextjs.org/">
-            <a target="_blank"> Next.js</a>
-          </Link>
-          ,
-          <Link href="//prismic.io/">
-            <a target="_blank"> prismic</a>
-          </Link>
-          , &
-          <Link href="//vercel.com">
-            <a target="_blank"> Vercel</a>
-          </Link>
+          Powered by{" "}
+          <a href="https://nextjs.org/" target="_blank">
+            Next.js
+          </a>
+          ,{" "}
+          <a href="https://prismic.io/" target="_blank">
+            prismic
+          </a>
+          , &{" "}
+          <a href="https://vercel.com" target="_blank">
+            Vercel
+          </a>
           .
         </span>
       )}
