@@ -40,14 +40,6 @@
         "placeholder": "Blog Post Title..."
       }
     },
-    "subtitle": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading2",
-        "label": "Sub Title",
-        "placeholder": "Blog Post Sub Title..."
-      }
-    },
     "date": {
       "type": "Date",
       "config": {
@@ -87,6 +79,68 @@
         "allowTargetBlank": true,
         "label": "Post body",
         "placeholder": "Content of the blog post"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "text": {
+            "type": "Slice",
+            "fieldset": "Text",
+            "description": "A Rich Text section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "rich_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Rich Text",
+                  "labels": ["code"],
+                  "placeholder": "Enter your text..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "code_snippet": {
+            "type": "Slice",
+            "fieldset": "Code Snippet",
+            "description": "A code snippet section for example code",
+            "icon": "code",
+            "non-repeat": {
+              "code_snippet": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "preformatted",
+                  "label": "Code Snippet",
+                  "placeholder": "Enter code snippet..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image": {
+            "type": "Slice",
+            "fieldset": "Image",
+            "description": "An image section",
+            "icon": "image",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
       }
     }
   }
