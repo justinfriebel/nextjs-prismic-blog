@@ -32,7 +32,7 @@ const BlogTagListing = ({ posts, singleTagTitle }) => {
               <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
                 <a>
                   <h2 className="subtitle">
-                    {RichText.asText(post.data.subtitle)}
+                    {RichText.asText(post.data.title)}
                   </h2>
                 </a>
               </Link>

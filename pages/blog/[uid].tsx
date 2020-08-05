@@ -8,6 +8,8 @@ import { Head } from "components/Head";
 import { PrettyDate } from "components/PrettyDate";
 import { Tags } from "components/Tags";
 import { Author } from "components/Author";
+import { CodeSlice } from "components/CodeSlice";
+import { TextSlice } from "components/TextSlice";
 
 const Post = ({ post }) => {
   const {
@@ -16,9 +18,20 @@ const Post = ({ post }) => {
     title,
     date,
     post_body,
+    body,
     meta_title,
     meta_description,
   } = post.data;
+
+  const blogContent = body.map((slice, index) => {
+    if (slice.slice_type === "text") {
+      return <TextSlice slice={slice} key={index} />;
+    } else if (slice.slice_type === "code_snippet") {
+      return <CodeSlice content={slice.primary.code_snippet} key={index} />;
+    } else {
+      return null;
+    }
+  });
 
   return (
     <Layout>
@@ -33,6 +46,8 @@ const Post = ({ post }) => {
       <Tags blogPostTags={blog_post_tags} />
 
       {RichText.render(post_body)}
+
+      {blogContent}
 
       <style jsx>{`
         .dateAuthorContainer {
