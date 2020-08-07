@@ -45,8 +45,6 @@ const Post = ({ post }) => {
 
       <Tags blogPostTags={blog_post_tags} />
 
-      {RichText.render(post_body)}
-
       {blogContent}
 
       <style jsx>{`
