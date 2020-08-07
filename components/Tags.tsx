@@ -10,7 +10,9 @@ const Tags = ({ blogPostTags }: TagsProps) => {
   return (
     <div>
       {blogPostTags.map(({ tag }: any, index: number) => {
-        const { title } = tag.data;
+        if (!tag?.data) return;
+
+        const { title } = tag?.data;
 
         return (
           <span key={tag.uid}>
