@@ -29,7 +29,7 @@ const BlogTagListing = ({ posts, singleTagTitle }) => {
 
           return (
             <li key={post.uid} className="blogPost">
-              <Link href={hrefResolver(post)} as={linkResolver(post)} passHref>
+              <Link href={linkResolver(post)} passHref>
                 <a>
                   <h2 className="subtitle">
                     {RichText.asText(post.data.title)}
