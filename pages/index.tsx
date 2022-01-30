@@ -6,6 +6,8 @@ import { PageHeading } from "components/PageHeading";
 import { Head } from "components/Head";
 
 const Home = ({ home }) => {
+  if (!home?.data) return "loading...";
+
   const { headline, page_body, meta_title, meta_description } = home.data;
 
   return (
