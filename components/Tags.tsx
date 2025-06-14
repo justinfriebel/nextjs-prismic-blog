@@ -17,11 +17,8 @@ const Tags = ({ blogPostTags }: TagsProps) => {
         return (
           <span key={tag.uid}>
             {index ? ", " : ""}
-            <Link
-              href={tagLinkResolver(tag.uid)}
-              passHref
-            >
-              <a className="blogPostTag">{RichText.asText(title)}</a>
+            <Link href={tagLinkResolver(tag.uid)} className="blogPostTag">
+              {RichText.asText(title)}
             </Link>
           </span>
         );

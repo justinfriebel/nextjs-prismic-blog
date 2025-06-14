@@ -28,20 +28,18 @@ const Nav = () => {
       <div className="navContainer">
         {displayLogo && (
           <Link href="/">
-            <a>
-              <img src={logo} alt={`${name} logo`} />
-            </a>
+            <img src={logo} alt={`${name} logo`} />
           </Link>
         )}
 
         <div className="desktopNavContainer">
           {nav.map((navItem) => (
-            <Link href={navItem.link} key={navItem.text}>
-              <a
-                className={displayLogo ? "navLinksWithLogo" : "navLinksNoLogo"}
-              >
-                {navItem.text}
-              </a>
+            <Link
+              href={navItem.link}
+              key={navItem.text}
+              className={displayLogo ? "navLinksWithLogo" : "navLinksNoLogo"}
+            >
+              {navItem.text}
             </Link>
           ))}
         </div>
