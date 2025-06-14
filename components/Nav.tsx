@@ -28,20 +28,18 @@ const Nav = () => {
       <div className="navContainer">
         {displayLogo && (
           <Link href="/">
-            <a>
-              <img src={logo} alt={`${name} logo`} />
-            </a>
+            <img src={logo} alt={`${name} logo`} />
           </Link>
         )}
 
         <div className="desktopNavContainer">
           {nav.map((navItem) => (
-            <Link href={navItem.link} key={navItem.text}>
-              <a
-                className={displayLogo ? "navLinksWithLogo" : "navLinksNoLogo"}
-              >
-                {navItem.text}
-              </a>
+            <Link
+              href={navItem.link}
+              key={navItem.text}
+              className={displayLogo ? "navLinksWithLogo" : "navLinksNoLogo"}
+            >
+              {navItem.text}
             </Link>
           ))}
         </div>
@@ -79,12 +77,10 @@ const Nav = () => {
           flex: 1;
           align-items: center;
         }
-        .navLinksWithLogo {
-          margin-right: 12px;
-          margin-left: 12px;
-        }
-        .navLinksNoLogo {
-          margin-right: 15px;
+        .desktopNavContainer {
+          display: flex;
+          align-items: center;
+          gap: 24px;
         }
         .menuIcon {
           margin-left: 12px;

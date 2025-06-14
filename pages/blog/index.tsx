@@ -26,12 +26,8 @@ const BlogHome = ({ home, posts }) => {
 
           return (
             <li key={post.uid} className="blogPost">
-              <Link href={linkResolver(post)} passHref>
-                <a>
-                  <h2 className="subtitle">
-                    {RichText.asText(post.data.title)}
-                  </h2>
-                </a>
+              <Link href={linkResolver(post)} className="subtitle">
+                <h2>{RichText.asText(post.data.title)}</h2>
               </Link>
 
               <span className="dateAuthorContainer">
