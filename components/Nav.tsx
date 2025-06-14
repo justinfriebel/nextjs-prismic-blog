@@ -77,12 +77,10 @@ const Nav = () => {
           flex: 1;
           align-items: center;
         }
-        .navLinksWithLogo {
-          margin-right: 12px;
-          margin-left: 12px;
-        }
-        .navLinksNoLogo {
-          margin-right: 15px;
+        .desktopNavContainer {
+          display: flex;
+          align-items: center;
+          gap: 24px;
         }
         .menuIcon {
           margin-left: 12px;
