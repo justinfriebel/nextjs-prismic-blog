@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return tag.data.title;
   });
 
-  const singleTagId = tagId.values().next().value;
+  const singleTagId = tagId.values().next().value as string | undefined;
   const singleTagTitle = tagTitle.values().next().value;
 
   const posts = await Prismic.client(process.env.PRISMIC_API_ENDPOINT, {
@@ -114,7 +114,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }).query(
     [
       Prismic.Predicates.at("document.type", "blog_post"),
-      Prismic.Predicates.at("my.blog_post.blog_post_tags.tag", singleTagId),
+      Prismic.Predicates.at(
+        "my.blog_post.blog_post_tags.tag",
+        singleTagId ?? ""
+      ),
     ],
     {
       orderings: "[my.blog_post.date desc]",
